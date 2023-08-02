@@ -1,12 +1,12 @@
-const path = require('path');
-const core = require('@actions/core');
-const exec = require('./_exec');
+import path from 'path';
+import core from '@actions/core';
+import exec from './_exec';
 
 /**
  * Pre-install extra dependecies
  * @returns {Promise<void>}
  */
-module.exports = async extras => {
+export default async extras => {
   if (!extras) {
     return Promise.resolve();
   }

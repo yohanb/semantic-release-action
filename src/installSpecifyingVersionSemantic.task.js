@@ -1,13 +1,13 @@
-const path = require('path');
-const core = require('@actions/core');
-const exec = require('./_exec');
-const inputs = require('./inputs.json');
+import path from 'path';
+import core from '@actions/core';
+import exec from './_exec';
+import inputs from './inputs.json';
 
 /**
  * Install Specifying Version semantic-release
  * @returns {Promise<void>}
  */
-module.exports = async () => {
+export default async () => {
   const semantic_version = core.getInput(inputs.semantic_version);
   const versionSuffix = semantic_version
     ? `@${semantic_version}`

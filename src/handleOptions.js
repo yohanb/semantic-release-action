@@ -1,12 +1,12 @@
-const core = require('@actions/core');
-const stringToJson = require('@cycjimmy/awesome-js-funcs/cjs/typeConversion/stringToJson.cjs').default;
-const inputs = require('./inputs.json');
+import core from '@actions/core';
+import stringToJson from '@cycjimmy/awesome-js-funcs/typeConversion/stringToJson';
+import inputs from './inputs.json';
 
 /**
  * Handle Branches Option
  * @returns {{}|{branch: string}}
  */
-exports.handleBranchesOption = () => {
+const handleBranchesOption = () => {
   const branchesOption = {};
   const branches = core.getInput(inputs.branches);
   const branch = core.getInput(inputs.branch);
@@ -45,7 +45,7 @@ exports.handleBranchesOption = () => {
  * Handle DryRun Option
  * @returns {{}|{dryRun: boolean}}
  */
-exports.handleDryRunOption = () => {
+const handleDryRunOption = () => {
   const dryRun = core.getInput(inputs.dry_run);
 
   switch (dryRun) {
@@ -64,7 +64,7 @@ exports.handleDryRunOption = () => {
  * Handle Ci Option
  * @returns {{}|{ci: boolean}}
  */
-exports.handleCiOption = () => {
+const handleCiOption = () => {
   const ci = core.getInput(inputs.ci);
 
   switch (ci) {
@@ -83,7 +83,7 @@ exports.handleCiOption = () => {
  * Handle Extends Option
  * @returns {{}|{extends: Array}|{extends: String}}
  */
-exports.handleExtends = () => {
+const handleExtends = () => {
   const extend = core.getInput(inputs.extends);
 
   if (extend) {
@@ -101,7 +101,7 @@ exports.handleExtends = () => {
  * Handle TagFormat Option
  * @returns {{}|{tagFormat: String}}
  */
-exports.handleTagFormat = () => {
+const handleTagFormat = () => {
   const tagFormat = core.getInput(inputs.tag_format);
 
   if (tagFormat) {
@@ -112,3 +112,11 @@ exports.handleTagFormat = () => {
     return {};
   }
 };
+
+export {
+  handleBranchesOption,
+  handleDryRunOption,
+  handleCiOption,
+  handleExtends,
+  handleTagFormat,
+}

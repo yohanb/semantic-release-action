@@ -1,17 +1,17 @@
-const core = require('@actions/core');
-const {
+import core from '@actions/core';
+import {
   handleBranchesOption,
   handleDryRunOption,
   handleCiOption,
   handleExtends,
   handleTagFormat,
-} = require('./handleOptions');
-const setUpJob = require('./setUpJob.task');
-const installSpecifyingVersionSemantic = require('./installSpecifyingVersionSemantic.task');
-const preInstall = require('./preInstall.task');
-const cleanupNpmrc = require('./cleanupNpmrc.task');
-const windUpJob = require('./windUpJob.task');
-const inputs = require('./inputs.json');
+}  from './handleOptions';
+import setUpJob from './setUpJob.task';
+import installSpecifyingVersionSemantic from './installSpecifyingVersionSemantic.task';
+import preInstall from './preInstall.task';
+import cleanupNpmrc from './cleanupNpmrc.task';
+import windUpJob from "./windUpJob.task.js";
+import inputs from './inputs.json';
 
 /**
  * Release main task
@@ -39,7 +39,7 @@ const release = async () => {
   await windUpJob(result);
 };
 
-module.exports = () => {
+export default () => {
   core.debug('Initialization successful');
   release().catch(core.setFailed);
 };

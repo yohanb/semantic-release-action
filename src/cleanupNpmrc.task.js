@@ -1,11 +1,11 @@
-const core = require('@actions/core');
-const exec = require('./_exec');
+import core from '@actions/core';
+import exec from './_exec';
 
 /**
  * Clean up `.npmrc` file in the repo after releasing
  * @returns {Promise<never>}
  */
-module.exports = async () => {
+export default async () => {
   const {stdout, stderr} = await exec(`rm -f .npmrc`);
   core.debug(stdout);
 

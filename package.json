@@ -2,7 +2,8 @@
   "name": "@cycjimmy/semantic-release-action",
   "version": "3.4.2",
   "description": "GitHub Action for Semantic Release",
-  "main": "index.js",
+  "exports": "./index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -1,12 +1,12 @@
-const path = require('path');
-const core = require('@actions/core');
-const outputs = require('./outputs.json');
+import path from 'path';
+import core from '@actions/core';
+import outputs from './outputs.json';
 
 /**
  * setUpJob
  * @returns {Promise<void>}
  */
-module.exports = async () => {
+export default async () => {
   // set outputs default
   core.setOutput(outputs.new_release_published, 'false');
 
