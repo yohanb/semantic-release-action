@@ -1,2 +1,4 @@
 import util from 'util';
-export default util.promisify(require('child_process').exec);
+import { exec } from 'child_process';
+
+export default util.promisify(exec);

@@ -2,10 +2,11 @@
   "name": "@cycjimmy/semantic-release-action",
   "version": "3.4.2",
   "description": "GitHub Action for Semantic Release",
-  "exports": "./index.js",
   "type": "module",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "ncc build index.js -o dist"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,9 @@
     "@cycjimmy/awesome-js-funcs": "^4.0.4",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
-    "semantic-release": "^19.0.5"
+    "semantic-release": "^21"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.36.1"
   }
 }

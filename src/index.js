@@ -12,6 +12,7 @@ import preInstall from './preInstall.task';
 import cleanupNpmrc from './cleanupNpmrc.task';
 import windUpJob from "./windUpJob.task.js";
 import inputs from './inputs.json';
+import semanticRelease from 'semantic-release';
 
 /**
  * Release main task
@@ -26,7 +27,6 @@ const release = async () => {
   await preInstall(core.getInput(inputs.extra_plugins));
   await preInstall(core.getInput(inputs.extends));
 
-  const semanticRelease = require('semantic-release');
   const result = await semanticRelease({
     ...handleBranchesOption(),
     ...handleDryRunOption(),
